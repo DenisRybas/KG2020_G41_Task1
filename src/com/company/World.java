@@ -4,8 +4,8 @@ import java.awt.*;
 import java.awt.geom.Path2D;
 
 public class World implements Drawable {
-    int w, h;
-    Color b, s;
+    private int w, h;
+    private Color b, s;
 
     public World(int w, int h, Color b, Color s) {
         this.w = w;
