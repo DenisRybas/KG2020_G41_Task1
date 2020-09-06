@@ -2,6 +2,7 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Path2D;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
@@ -10,9 +11,14 @@ public class DrawPanel extends JPanel {
 
     @Override
     public void paint(Graphics g) {
+        drawWorld((Graphics2D) g);
         drawTree((Graphics2D) g);
         drawSun((Graphics2D) g);
+    }
 
+    private void drawWorld(Graphics2D g) {
+        World world = new World(getWidth(), getHeight(), Color.GRAY, Color.BLUE);
+        world.draw(g);
     }
 
     private void drawSun(Graphics2D g) {
@@ -28,7 +34,7 @@ public class DrawPanel extends JPanel {
             int r = rand.nextInt(35) + 40;
             int h = rand.nextInt(40) + 100;
             int w = rand.nextInt(20) + 40;
-            int n = rand.nextInt(5) + 1;
+            int n = rand.nextInt(4) + 1;
             int x = rand.nextInt(getWidth() - 3 * r) + r;
             int y = rand.nextInt(getHeight() / 10) + 9 * getHeight() / 10 - h;
             Tree t = new Tree(x, y, h, w, n, r, Color.GREEN);
