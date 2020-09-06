@@ -36,17 +36,24 @@ public class Tree implements Drawable {
 
         g.setColor(new Color(51, 0, 0));
         g.fillRect(x, y, w, h);
-
-        g.setColor(c);
+        g.setColor(Color.black);
+        g.drawRect(x, y, w, h);
         for (int i = 0; i < n; i++) {
+            g.setColor(c);
             if (i % 2 == 0) {
                 if (i == n - 1) {
                     g.fillOval(x - r / 2, y - r * (i / 2 + 1), r * 2, r * 2);
+                    g.setColor(Color.black);
+                    g.drawOval(x - r / 2, y - r * (i / 2 + 1), r * 2, r * 2);
                     break;
                 }
                 g.fillOval(x - r, y - r * (i / 2 + 1), r * 2, r * 2);
+                g.setColor(Color.black);
+                g.drawOval(x - r, y - r * (i / 2 + 1), r * 2, r * 2);
             } else {
                 g.fillOval(x + w - r, y - r * (i / 2 + 1), r * 2, r * 2);
+                g.setColor(Color.black);
+                g.drawOval(x + w - r, y - r * (i / 2 + 1), r * 2, r * 2);
             }
         }
     }
