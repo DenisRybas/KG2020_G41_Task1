@@ -6,10 +6,12 @@ import java.util.Random;
 
 public class DrawPanel extends JPanel {
     private Random rand = new Random(System.currentTimeMillis());
+
     private enum Season {
         Fall,
         Summer
     }
+
     private final DrawPanel.Season szn = rand.nextInt(2) == 0 ? Season.Summer : Season.Fall;
 
     @Override
@@ -17,6 +19,7 @@ public class DrawPanel extends JPanel {
         drawWorld((Graphics2D) g);
         drawSun((Graphics2D) g);
         drawClouds((Graphics2D) g);
+        drawStones((Graphics2D) g);
         drawTrees((Graphics2D) g);
     }
 
@@ -44,6 +47,17 @@ public class DrawPanel extends JPanel {
         Sun sun = new Sun(getWidth() - 2 * r, 2 * r, r, 2 * r, rand.nextInt(12) + 8,
                 rand.nextInt(2) == 0 ? Color.ORANGE : Color.YELLOW);
         sun.draw(g);
+    }
+
+    private void drawStones(Graphics2D g) {
+        int numberOfStones = rand.nextInt(5) + 5;
+        for (int i = 0; i < numberOfStones; i++) {
+            int w = rand.nextInt(20) + 10;
+            int h = rand.nextInt(10) + 5;
+            Stone s = new Stone(rand.nextInt(getWidth() - 2 * w / 10) + w / 10,
+                    rand.nextInt(getHeight() / 2 - h) + getHeight() / 2, w, h);
+            s.draw(g);
+        }
     }
 
     private void drawTrees(Graphics2D g) {

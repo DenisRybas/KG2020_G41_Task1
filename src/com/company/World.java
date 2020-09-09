@@ -6,7 +6,7 @@ import java.awt.geom.Path2D;
 public class World implements Drawable {
     private int w, h;
     private Color b, s;
-    private Path2D.Double bg;
+
 
     public World(int w, int h, Color b, Color s) {
         this.w = w;
@@ -15,16 +15,13 @@ public class World implements Drawable {
         this.s = s;
     }
 
-    public Path2D.Double getBackground() {
-        return bg;
-    }
 
     @Override
     public void draw(Graphics2D g) {
         g.setColor(s);
         g.fillRect(0, 0, w, h);
 
-        bg = new Path2D.Double();
+        Path2D.Double bg = new Path2D.Double();
         g.setColor(b);
         bg.moveTo(0, h / 2);
         bg.curveTo(w / 3, h / 3, w / 2, h / 2, w, h / 3);
