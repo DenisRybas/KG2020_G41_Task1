@@ -37,7 +37,7 @@ public class DrawPanel extends JPanel {
 
     private void drawWorld(Graphics2D g) {
         World world = new World(getWidth(), getHeight(),
-                szn == Season.Summer ? new Color(96, 128, 56) : new Color(243, 188, 46),
+                szn == Season.Summer ? new Color(96, 128, 56) : new Color(198, 119, 39),
                 szn == Season.Summer ? new Color(149, 200, 216) : new Color(129, 182, 221));
         world.draw(g);
     }
@@ -50,9 +50,9 @@ public class DrawPanel extends JPanel {
     }
 
     private void drawStones(Graphics2D g) {
-        int numberOfStones = rand.nextInt(5) + 5;
+        int numberOfStones = rand.nextInt(5) + 10;
         for (int i = 0; i < numberOfStones; i++) {
-            int w = rand.nextInt(20) + 10;
+            int w = rand.nextInt(10) + 10;
             int h = rand.nextInt(10) + 5;
             Stone s = new Stone(rand.nextInt(getWidth() - 2 * w / 10) + w / 10,
                     rand.nextInt(getHeight() / 2 - h) + getHeight() / 2, w, h);
@@ -61,14 +61,14 @@ public class DrawPanel extends JPanel {
     }
 
     private void drawTrees(Graphics2D g) {
-        int numOfTrees = rand.nextInt(5) + 1;
+        int numOfTrees = rand.nextInt(10) + 5;
         Color c = szn == Season.Fall ? new Color(224, 204, 119) : new Color(11, 102, 35);
         for (int i = 0; i < numOfTrees; i++) {
             int r = rand.nextInt(35) + 40;
             int h = rand.nextInt(40) + 100;
-            int w = rand.nextInt(20) + 40;
+            int w = rand.nextInt(10) + 20;
             int n = rand.nextInt(3) + 3;
-            int x = rand.nextInt(getWidth() - 3 * r - i * r / numOfTrees) + r;
+            int x = getWidth() * i / numOfTrees + r / 2;
             int y = rand.nextInt(getHeight() / 10) + 9 * getHeight() / 10 - h;
             int nApples = szn == Season.Fall ? 0 : rand.nextInt(5) + 5;
             Tree t = new Tree(x, y, h, w, n, r, nApples, c);
