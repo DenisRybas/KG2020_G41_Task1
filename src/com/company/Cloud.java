@@ -18,7 +18,6 @@ public class Cloud implements Drawable {
             g.setColor(Color.white);
             g.fillOval(x + r * i / 3, y + r * (i % 2 + 1) / 2, r, r);
             g.setColor(Color.black);
-            g.drawOval(x + r * i / 3, y + r * (i % 2 + 1) / 2, r, r);
         }
     }
 }

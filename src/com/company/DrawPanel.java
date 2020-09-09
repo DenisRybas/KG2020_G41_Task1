@@ -54,7 +54,7 @@ public class DrawPanel extends JPanel {
             int h = rand.nextInt(40) + 100;
             int w = rand.nextInt(20) + 40;
             int n = rand.nextInt(3) + 3;
-            int x = rand.nextInt(getWidth() - 3 * r) + r;
+            int x = rand.nextInt(getWidth() - 3 * r - i * r / numOfTrees) + r;
             int y = rand.nextInt(getHeight() / 10) + 9 * getHeight() / 10 - h;
             Tree t = new Tree(x, y, h, w, n, r, c);
             t.draw(g);
