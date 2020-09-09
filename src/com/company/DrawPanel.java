@@ -56,7 +56,8 @@ public class DrawPanel extends JPanel {
             int n = rand.nextInt(3) + 3;
             int x = rand.nextInt(getWidth() - 3 * r - i * r / numOfTrees) + r;
             int y = rand.nextInt(getHeight() / 10) + 9 * getHeight() / 10 - h;
-            Tree t = new Tree(x, y, h, w, n, r, c);
+            int nApples = szn == Season.Fall ? 0 : rand.nextInt(5) + 5;
+            Tree t = new Tree(x, y, h, w, n, r, nApples, c);
             t.draw(g);
         }
     }
