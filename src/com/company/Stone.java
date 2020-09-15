@@ -1,7 +1,6 @@
 package com.company;
 
 import java.awt.*;
-import java.awt.geom.Path2D;
 
 public class Stone implements Drawable {
     int x, y, w, h;
@@ -16,7 +15,7 @@ public class Stone implements Drawable {
 
     @Override
     public void draw(Graphics2D g) {
-        Path2D.Double bg = new Path2D.Double();
+        /*Path2D.Double bg = new Path2D.Double();
         bg.moveTo(x, y);
         bg.curveTo(x + w / 3, y - h / 3, x + w / 2, y - h / 2, x + w, y);
         bg.lineTo(x + w, y + h / 3);
@@ -25,5 +24,8 @@ public class Stone implements Drawable {
         g.setColor(Color.GRAY);
         g.fill(bg);
         g.draw(bg);
+         */
+        g.setColor(Color.GRAY);
+        g.fillArc(x, y, w, h, 0 ,180);
     }
 }

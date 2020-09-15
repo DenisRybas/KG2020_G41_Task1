@@ -19,8 +19,19 @@ public class DrawPanel extends JPanel {
         drawWorld((Graphics2D) g);
         drawSun((Graphics2D) g);
         drawClouds((Graphics2D) g);
+        drawBirds((Graphics2D) g);
         drawStones((Graphics2D) g);
         drawTrees((Graphics2D) g);
+    }
+
+    private void drawBirds(Graphics2D g) {
+        int numOfBirds = szn == Season.Fall ? rand.nextInt(3) : rand.nextInt(5) + 4;
+        for (int i = 0; i < numOfBirds; i++) {
+            int w = rand.nextInt(40) + 35;
+            int h = rand.nextInt(10) + 10;
+            Bird brd = new Bird(rand.nextInt(getWidth() - w), rand.nextInt(getHeight() / 4), w, h);
+            brd.draw(g);
+        }
     }
 
     private void drawClouds(Graphics2D g) {
@@ -52,8 +63,8 @@ public class DrawPanel extends JPanel {
     private void drawStones(Graphics2D g) {
         int numberOfStones = rand.nextInt(5) + 10;
         for (int i = 0; i < numberOfStones; i++) {
-            int w = rand.nextInt(10) + 10;
-            int h = rand.nextInt(10) + 5;
+            int w = rand.nextInt(10) + 15;
+            int h = rand.nextInt(10) + 15;
             Stone s = new Stone(rand.nextInt(getWidth() - 2 * w / 10) + w / 10,
                     rand.nextInt(getHeight() / 2 - h) + getHeight() / 2, w, h);
             s.draw(g);
@@ -79,7 +90,7 @@ public class DrawPanel extends JPanel {
             int n = rand.nextInt(2) + 6;
             FractalTree t = new FractalTree(getWidth() * i / numberOfTrees + getWidth() / numberOfTrees / n,
                     rand.nextInt(getHeight() / 10) + 9 * getHeight() / 10,
-                    n, -90);
+                    n, -90, szn == Season.Fall ? new Color(224, 204, 119) : new Color(11, 102, 35));
             t.draw(g);
         }
     }
