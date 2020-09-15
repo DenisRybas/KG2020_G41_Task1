@@ -61,7 +61,7 @@ public class DrawPanel extends JPanel {
     }
 
     private void drawTrees(Graphics2D g) {
-        int numOfTrees = rand.nextInt(10) + 5;
+        /*int numOfTrees = rand.nextInt(10) + 5;
         Color c = szn == Season.Fall ? new Color(224, 204, 119) : new Color(11, 102, 35);
         for (int i = 0; i < numOfTrees; i++) {
             int r = rand.nextInt(35) + 40;
@@ -73,6 +73,10 @@ public class DrawPanel extends JPanel {
             int nApples = szn == Season.Fall ? 0 : rand.nextInt(5) + 5;
             Tree t = new Tree(x, y, h, w, n, r, nApples, c);
             t.draw(g);
-        }
+        }*/
+        int n = rand.nextInt(2) + 7;
+        FractalTree t = new FractalTree(rand.nextInt(getWidth() - n * 20) + n * 10, rand.nextInt(getHeight() / 10) + 9 * getHeight() / 10,
+                n, -90);
+        t.draw(g);
     }
 }
