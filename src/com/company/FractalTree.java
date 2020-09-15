@@ -5,16 +5,17 @@ import java.util.Random;
 
 public class FractalTree implements Drawable {
     private int x, y, n;
-    private Color c;
+    private Color c, cc;
     private double angle;
     private Random rand = new Random(System.currentTimeMillis());
 
-    public FractalTree(int x, int y, int n, double angle, Color c) {
+    public FractalTree(int x, int y, int n, double angle, Color c, Color cc) {
         this.x = x;
         this.y = y;
         this.n = n;
         this.angle = angle;
         this.c = c;
+        this.cc = cc;
     }
 
     @Override
@@ -30,7 +31,7 @@ public class FractalTree implements Drawable {
             drawLeaf(g, x2, y2, 22, 22);
             return;
         }
-        g.setColor(new Color(51, 0, 0));
+        g.setColor(cc);
         g.setStroke(new BasicStroke(n * 2));
         g.drawLine(x, y, x2, y2);
 

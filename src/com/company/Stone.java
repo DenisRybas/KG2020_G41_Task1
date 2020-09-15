@@ -3,13 +3,15 @@ package com.company;
 import java.awt.*;
 
 public class Stone implements Drawable {
-    int x, y, w, h;
+    private int x, y, w, h;
+    private Color c;
 
-    public Stone(int x, int y, int w, int h) {
+    public Stone(int x, int y, int w, int h, Color c) {
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = h;
+        this.c = c;
     }
 
 
@@ -25,7 +27,7 @@ public class Stone implements Drawable {
         g.fill(bg);
         g.draw(bg);
          */
-        g.setColor(Color.GRAY);
+        g.setColor(c);
         g.fillArc(x, y, w, h, 0 ,180);
     }
 }

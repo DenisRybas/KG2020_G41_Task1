@@ -49,8 +49,7 @@ public class DrawPanel extends JPanel {
     private void drawFlowers(Graphics2D g) {
         Color[] dayColors = {new Color(233, 103, 117), new Color(197, 29, 52),
                 new Color(139, 122, 168), new Color(207, 157, 230)};
-        Color[] nightColors = {new Color(233, 103, 117), new Color(197, 29, 52),
-                new Color(151, 64, 181), new Color(207, 157, 230)};
+        Color[] nightColors = {new Color(172, 85, 64), new Color(84, 115, 133)};
 
         int numOfFlowers = rand.nextInt(30) + 150;
         for (int i = 0; i < numOfFlowers; i++) {
@@ -104,7 +103,8 @@ public class DrawPanel extends JPanel {
             int w = rand.nextInt(10) + 15;
             int h = rand.nextInt(10) + 15;
             Stone s = new Stone(rand.nextInt(getWidth() - 2 * w / 10) + w / 10,
-                    rand.nextInt(getHeight() / 2 - h) + getHeight() / 2, w, h);
+                    rand.nextInt(getHeight() / 2 - h) + getHeight() / 2, w, h,
+                    time == Time.Day ? new Color(136, 140, 141) : new Color(74, 72, 77));
             s.draw(g);
         }
     }
@@ -128,7 +128,8 @@ public class DrawPanel extends JPanel {
             int n = rand.nextInt(2) + 6;
             FractalTree t = new FractalTree(getWidth() * i / numberOfTrees + getWidth() / numberOfTrees / n,
                     rand.nextInt(getHeight() / 10) + 9 * getHeight() / 10,
-                    n, -90, time == Time.Day ? new Color(112, 199, 78) : new Color(11, 102, 35));
+                    n, -90, time == Time.Day ? new Color(112, 199, 78) : new Color(2, 37, 59),
+                    time == Time.Day ? new Color(51, 0, 0) : new Color(38, 18, 14));
             t.draw(g);
         }
     }
