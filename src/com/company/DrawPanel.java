@@ -22,6 +22,7 @@ public class DrawPanel extends JPanel {
             drawClouds((Graphics2D) g);
             drawBirds((Graphics2D) g);
         } else {
+            drawStars((Graphics2D) g);
             drawMoon((Graphics2D) g);
         }
         drawStones((Graphics2D) g);
@@ -29,22 +30,34 @@ public class DrawPanel extends JPanel {
         drawTrees((Graphics2D) g);
     }
 
+    private void drawStars(Graphics2D g) {
+        int numOfStars = rand.nextInt(30) + 10;
+        for (int i = 0; i < numOfStars; i++) {
+            int r = rand.nextInt(5) + 5;
+            Star s = new Star(rand.nextInt(getWidth() - r), rand.nextInt(getHeight() / 4), r,
+                    new Color(250, 253, 236));
+            s.draw(g);
+        }
+    }
+
     private void drawMoon(Graphics2D g) {
         int r = 40;
-        Moon m = new Moon(rand.nextInt(getWidth() - 2 * r), rand.nextInt(getHeight() / 10), r, new Color(244, 241,201));
+        Moon m = new Moon(rand.nextInt(getWidth() - 2 * r), rand.nextInt(getHeight() / 10), r, new Color(244, 241, 201));
         m.draw(g);
     }
 
     private void drawFlowers(Graphics2D g) {
-        Color[] colors = {new Color(233, 103, 117), new Color(197, 29, 52),
+        Color[] dayColors = {new Color(233, 103, 117), new Color(197, 29, 52),
                 new Color(139, 122, 168), new Color(207, 157, 230)};
+        Color[] nightColors = {new Color(233, 103, 117), new Color(197, 29, 52),
+                new Color(151, 64, 181), new Color(207, 157, 230)};
+
         int numOfFlowers = rand.nextInt(30) + 150;
         for (int i = 0; i < numOfFlowers; i++) {
             int r = rand.nextInt(10) + 5;
             Flower f = new Flower(getWidth() * i / numOfFlowers,
                     rand.nextInt(getHeight() / 2 - r) + getHeight() / 2, rand.nextInt(5) + 5,
-                    r,
-                    colors[rand.nextInt(colors.length)]);
+                    r, time == Time.Day ? dayColors[rand.nextInt(dayColors.length)] : nightColors[rand.nextInt(nightColors.length)]);
             f.draw(g);
         }
     }
@@ -73,7 +86,7 @@ public class DrawPanel extends JPanel {
 
     private void drawWorld(Graphics2D g) {
         World world = new World(getWidth(), getHeight(),
-                time == Time.Day ? new Color(96, 128, 56) : new Color(18,52,73),
+                time == Time.Day ? new Color(96, 128, 56) : new Color(18, 52, 73),
                 time == Time.Day ? new Color(129, 182, 221) : new Color(59, 60, 72));
         world.draw(g);
     }
