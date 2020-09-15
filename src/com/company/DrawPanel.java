@@ -74,9 +74,13 @@ public class DrawPanel extends JPanel {
             Tree t = new Tree(x, y, h, w, n, r, nApples, c);
             t.draw(g);
         }*/
-        int n = rand.nextInt(2) + 7;
-        FractalTree t = new FractalTree(rand.nextInt(getWidth() - n * 20) + n * 10, rand.nextInt(getHeight() / 10) + 9 * getHeight() / 10,
-                n, -90);
-        t.draw(g);
+        int numberOfTrees = rand.nextInt(3) + 4;
+        for (int i = 0; i < numberOfTrees; i++) {
+            int n = rand.nextInt(2) + 6;
+            FractalTree t = new FractalTree(getWidth() * i / numberOfTrees + getWidth() / numberOfTrees / n,
+                    rand.nextInt(getHeight() / 10) + 9 * getHeight() / 10,
+                    n, -90);
+            t.draw(g);
+        }
     }
 }
