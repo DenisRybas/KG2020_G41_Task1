@@ -38,7 +38,6 @@ public class FractalTree implements Drawable {
             drawLeaf(g, x, y, 22, 22);
         }
 
-
         drawTree(g, x2, y2, angle - 20, n - 1);
         drawTree(g, x2, y2, angle + 20, n - 1);
     }

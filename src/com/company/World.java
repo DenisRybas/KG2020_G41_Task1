@@ -31,7 +31,7 @@ public class World implements Drawable {
         bg.lineTo(0, h / 2);
         g.fill(bg);
         g.draw(bg);
-
+        
         /*Path2D.Double sky = new Path2D.Double();
         g.setColor(s);
         sky.moveTo(0, 0);

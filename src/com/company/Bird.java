@@ -14,10 +14,10 @@ public class Bird implements Drawable {
 
     @Override
     public void draw(Graphics2D g) {
-        drawBirds(g);
+        drawBird(g);
     }
 
-    private void drawBirds(Graphics2D g) {
+    private void drawBird(Graphics2D g) {
         g.setColor(Color.black);
         g.setStroke(new BasicStroke(3));
         g.drawArc(x, y, w / 2, h, 0, 180);

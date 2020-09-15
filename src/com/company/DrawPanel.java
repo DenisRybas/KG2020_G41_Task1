@@ -21,7 +21,22 @@ public class DrawPanel extends JPanel {
         drawClouds((Graphics2D) g);
         drawBirds((Graphics2D) g);
         drawStones((Graphics2D) g);
+        drawFlowers((Graphics2D) g);
         drawTrees((Graphics2D) g);
+    }
+
+    private void drawFlowers(Graphics2D g) {
+        Color[] colors = {new Color(233, 103, 117), new Color(197, 29, 52),
+                new Color(139, 122, 168), new Color(207, 157, 230)};
+        int numOfFlowers = szn == Season.Fall ? rand.nextInt(30) + 20 : rand.nextInt(30) + 150;
+        for (int i = 0; i < numOfFlowers; i++) {
+            int r = rand.nextInt(10) + 5;
+            Flower f = new Flower(getWidth() * i / numOfFlowers,
+                    rand.nextInt(getHeight() / 2 - r) + getHeight() / 2, rand.nextInt(5) + 5,
+                    r,
+                    colors[rand.nextInt(colors.length)]);
+            f.draw(g);
+        }
     }
 
     private void drawBirds(Graphics2D g) {
