@@ -14,7 +14,6 @@ public class RandUtils {
 
     private static Time time;
 
-
     public static Time randTime() {
         Random rand = new Random(System.currentTimeMillis());
         return Time.values()[rand.nextInt(Time.values().length)];
@@ -57,7 +56,7 @@ public class RandUtils {
                 new Color(139, 122, 168), new Color(207, 157, 230)};
         Color[] nightColors = {new Color(172, 85, 64), new Color(84, 115, 133)};
 
-        HashMap<Integer, Flower> flowers = new HashMap<>();
+        LinkedHashMap<Integer, Flower> flowers = new LinkedHashMap<>();
         int numOfFlowers = rand.nextInt(10) + 150;
         for (int i = 0; i < numOfFlowers; i++) {
             int r = rand.nextInt(10) + 5;
@@ -84,7 +83,7 @@ public class RandUtils {
         return birds;
     }
 
-    public static LinkedList<Cloud> randClouds(Rectangle rec) {
+    public static Collection<Cloud> randClouds(Rectangle rec) {
         Random rand = new Random(System.currentTimeMillis());
         int numOfClouds = rand.nextInt(8) + 1;
         LinkedList<Cloud> clouds = new LinkedList<>();
